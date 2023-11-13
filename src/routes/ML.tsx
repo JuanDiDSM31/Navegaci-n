@@ -16,6 +16,8 @@ export const ML = () => {
   const {width} = useWindowDimensions();
   return (
     <Drawer.Navigator
+    
+    screenOptions={{headerShown:false}}
       // drawerType={width>=768? 'permanent' :  'front'}
       drawerContent={props => <Mi {...props} />}>
       <Drawer.Screen

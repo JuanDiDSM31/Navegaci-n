@@ -9,23 +9,53 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import { TobTab } from './TobTab';
 
 export const Tabs = () => {
-  return Platform.OS === 'ios' ? <TabsIOS /> : <TabsIOS />;
+  return Platform.OS === 'ios' ? <TabsIOS /> : <TabAndroid />;
 };
 // android
-// const BotonAndroid = createMaterialBottomTabNavigator();
-// const TabAndroid = () => {
-//   return (
-//   <BotonAndroid.Navigator>
-// <BotonAndroid.Screen name="Tab1" options={{title: 'Tab 1'}} component={Tab1} />
-//       <BotonAndroid.Screen name="Tab2" options={{title: 'Tab 2'}} component={Tab2} />
-//       {/* <Tab.Screen name="Tab3" component={Tab3} /> */}
-//       <BotonAndroid.Screen
-//         name="StackNavigator"
-//         options={{title: 'Stack'}}
-//         component={StackNavigator}
-//       />
-//   </BotonAndroid.Navigator>)
-// };
+ const BotonAndroid = createMaterialBottomTabNavigator();
+ const TabAndroid = () => {
+   return (
+   <BotonAndroid.Navigator
+   sceneContainerStyle={{backgroundColor: 'white'}}
+      tabBarOptions={{
+        activeTintColor: colores.primario,
+        style: {
+          borderTopColor: colores.primario,
+          borderTopWidth: 0,
+          elevation: 0,
+        },
+        labelStyle: {
+          fontSize: 15,
+        },
+      }}
+      screenOptions={({route}) => ({
+        tabBarIcon: ({color, focused, }) => {
+          let iconName: string = '';
+          switch (route.name) {
+            case 'Tab1':
+              iconName = 'T1';
+              break;
+            case 'Tab2':
+              iconName = 'T2';
+              break;
+            case 'StackNavigator':
+              iconName = 'STk';
+              break;
+          }
+          return <Text style={{color}}>{iconName}</Text>;
+        },
+      })}>
+   
+ <BotonAndroid.Screen name="Tab1" options={{title: 'Tab 1'}} component={Tab1} />
+       <BotonAndroid.Screen name="Tab2" options={{title: 'Tab 2'}} component={Tab2} />
+       {/* <Tab.Screen name="Tab3" component={Tab3} /> */}
+       <BotonAndroid.Screen
+         name="StackNavigator"
+         options={{title: 'Stack'}}
+         component={StackNavigator}
+       />
+   </BotonAndroid.Navigator>)
+ };
 // fin de android
 
 // IOS

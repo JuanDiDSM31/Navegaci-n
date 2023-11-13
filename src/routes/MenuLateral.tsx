@@ -9,9 +9,14 @@ export const MenuLateral = () => {
   const {width}=useWindowDimensions();
   return (
     <Drawer.Navigator
+    screenOptions={
+      {
+        headerShown:false,
+      }
+    }
     // drawerType={width>=768? 'permanent' :  'front'}
     >
-      <Drawer.Screen name="StackNavigator" options={{title:'Home'}} component={StackNavigator} />
+      <Drawer.Screen name="StackNavigator" options={{title:'Home',headerShown:false}} component={StackNavigator} />
       <Drawer.Screen name="Setting"        options={{title:'settings'}} component={Setting} />
     </Drawer.Navigator>
   );
