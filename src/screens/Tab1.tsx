@@ -9,7 +9,7 @@ export const Tab1 = () => {
   return (
     <View>
         <Text>
-            Tab1
+            Tab1 aaaa
         </Text>
     </View>
   )
